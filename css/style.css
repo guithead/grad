@@ -1,22 +1,28 @@
+/*GENERAL*/
+
 html {
   min-height: 100%;
 }
 
 body {
   margin: 0;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: "Montserrat", sans-serif;
+  text-align: center;
   color: rgba(0, 0, 0, 0.8);
   background: linear-gradient(
     90deg,
-    rgb(125, 33, 33) 0%,
-    rgb(124, 85, 116) 50%
+    rgb(43, 93, 158) 0%,
+    rgb(196, 48, 160) 50%
   );
   min-height: 100vh;
 }
+
+/*HEADING*/
 
 h1 {
   font-family: "Bungee Shade", cursive;
@@ -28,10 +34,20 @@ h1 {
   width: 100%;
 }
 
+/*CONTROLS*/
+
 .controls {
   background: rgba(211, 209, 209, 0.2);
   border-radius: 10px;
 }
+
+.value {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+/*colors*/
 
 .color-wrapper {
   display: flex;
@@ -62,27 +78,7 @@ h5 {
   margin-bottom: 0.5rem;
 }
 
-#slider {
-  -webkit-appearance: none;
-  width: 50%;
-  height: 10px;
-  border-radius: 10px;
-  background: #fff;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
-}
-
-#slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #000;
-  cursor: pointer;
-}
+/*slider style*/
 
 .stop-slider {
   -webkit-appearance: none;
@@ -111,18 +107,51 @@ h5 {
   opacity: 1;
 }
 
-.value {
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
-  font-weight: 600;
+/*color picker style*/
+
+input[type="color"] {
+  border: 8px solid #fff;
+  cursor: pointer;
 }
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+
+/*gradient angle*/
+
+#slider-angle {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 10px;
+  border-radius: 10px;
+  background: #fff;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+#slider-angle::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+}
+
+/*CSS CODE*/
 
 .css {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  margin: 3rem 0;
 }
 
 #code {
@@ -144,11 +173,15 @@ button {
   border-radius: 5px;
   box-shadow: 1px 2px #000;
   border: 1px solid black;
+  color: #000;
+  background-color: #fff;
 }
 
 button:active {
   transform: translateY(3px);
   outline: none;
+  color: #fff;
+  background-color: #000;
 }
 
 @media (hover: hover) {
@@ -159,16 +192,7 @@ button:active {
   }
 }
 
-input[type="color"] {
-  border: 8px solid #fff;
-  cursor: pointer;
-}
-input[type="color"]::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-input[type="color"]::-webkit-color-swatch {
-  border: none;
-}
+/*FOOTER*/
 
 footer {
   margin-top: auto;
@@ -182,4 +206,24 @@ footer a {
 
 footer a:hover {
   color: #fff;
+}
+
+/*MEDIA QUERIES*/
+
+@media screen and (max-width: 550px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  h1 {
+    font-size: 1.6rem;
+  }
 }

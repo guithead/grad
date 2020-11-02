@@ -12,48 +12,50 @@
   </head>
   <body>
     <h1>Gradient Generator</h1>
+    <!-- Color Controls -->
     <section class="controls">
       <div class="color-wrapper">
-        <div class="color-one">
+        <div>
           <h4>Color One</h4>
-          <input type="color" class="color1" value="#7d2121" />
+          <input type="color" class="color1" value="#2b5d9e" />
           <h5>Color Stop</h5>
           <input
-            id="slider-color-one"
+            id="slider-color1"
             class="stop-slider"
             type="range"
             min="0"
             max="100"
             value="0"
           />
-          <p id="value-one" class="value"></p>
+          <p id="value-color1" class="value"></p>
         </div>
-        <div class="color-two">
+        <div>
           <h4>Color Two</h4>
-          <input type="color" class="color2" value="#7c5574" />
+          <input type="color" class="color2" value="#c430a0" />
           <h5>Color Stop</h5>
           <input
-            id="slider-color-two"
+            id="slider-color2"
             class="stop-slider"
             type="range"
             min="0"
             max="100"
             value="50"
           />
-          <p id="value-two" class="value"></p>
+          <p id="value-color2" class="value"></p>
         </div>
       </div>
-
       <div class="slider-wrapper">
         <h4>Gradient Angle</h4>
-        <input id="slider" type="range" min="0" max="360" value="90" />
-        <p id="slider-value" class="value"></p>
+        <input id="slider-angle" type="range" min="0" max="360" value="90" />
+        <p id="value-angle" class="value"></p>
       </div>
     </section>
+    <!-- CSS Code -->
     <section class="css">
       <p id="code"></p>
       <button>Copy CSS Code</button>
     </section>
+    <!-- Footer -->
     <footer>
       <p>Manufactured by <a href="https://luboszavarsky.github.io/">LZ</a></p>
     </footer>

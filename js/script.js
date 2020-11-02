@@ -1,72 +1,77 @@
-//VARIABLES
-const cssCode = document.querySelector("#code");
-const color1 = document.querySelector(".color1");
-const color2 = document.querySelector(".color2");
-const color1Slider = document.querySelector("#slider-color-one");
-const color2Slider = document.querySelector("#slider-color-two");
-const color1Value = document.querySelector("#value-one");
-const color2Value = document.querySelector("#value-two");
+/*
+  VARIABLES
+*/
+//body
 const body = document.querySelector("body");
 const initialValue = getComputedStyle(body).background;
-const slider = document.getElementById("slider");
-const output = document.getElementById("slider-value");
-const copyCode = document.querySelector("button");
+//color controls
+const color1 = document.querySelector(".color1");
+const color2 = document.querySelector(".color2");
+const color1Slider = document.querySelector("#slider-color1");
+const color2Slider = document.querySelector("#slider-color2");
+const color1Value = document.querySelector("#value-color1");
+const color2Value = document.querySelector("#value-color2");
+//angle controls
+const angleSlider = document.querySelector("#slider-angle");
+const angleValue = document.querySelector("#value-angle");
+//css code
+const copyBtn = document.querySelector("button");
+const cssCode = document.querySelector("#code");
 
-//INITIAL BACKGROUND CSS VALUE
+/*
+  ACTIONS
+*/
+
+//initial background gradient css value
 cssCode.textContent = "background: " + initialValue.slice(17, -50) + ";";
 
-//INITIAL SLIDER VALUE
+//initial slider value
 color1Value.innerHTML = color1Slider.value;
 color2Value.innerHTML = color2Slider.value;
-output.innerHTML = slider.value;
+angleValue.innerHTML = angleSlider.value;
 
-//SET BCKG GRADIENT WITH COLOR PICKERS , SLIDERS
+//set gradient with color picker, slider
 color1.addEventListener("input", setGradient);
 color2.addEventListener("input", setGradient);
 color1Slider.addEventListener("input", setGradient);
 color2Slider.addEventListener("input", setGradient);
-slider.addEventListener("input", setGradient);
+angleSlider.addEventListener("input", setGradient);
 
-//fn SET GRADIENT, SHOW CSS CODE
+//copy CSS code by clicking the btn
+copyBtn.addEventListener("click", copyToClipboard);
+
+/*
+  FUNCTIONS
+*/
+
+//set gradient, show CSS code
 function setGradient() {
-  const grg = color1Slider.value;
-  const jeb = color2Slider.value;
-  const prd = slider.value;
+  const setColor1Stop = color1Slider.value;
+  const setColor2Stop = color2Slider.value;
+  const setAngle = angleSlider.value;
 
-  body.style.background =
-    "linear-gradient(" +
-    prd +
-    "deg, " +
-    color1.value +
-    " " +
-    grg +
-    "%, " +
-    color2.value +
-    " " +
-    jeb +
-    "%)";
+  body.style.background = `linear-gradient(${setAngle}deg, ${color1.value} ${setColor1Stop}%, ${color2.value} ${setColor2Stop}%)`;
 
-  color1Value.innerHTML = grg;
-  color2Value.innerHTML = jeb;
-  output.innerHTML = prd;
-  cssCode.innerHTML = "background: " + body.style.background + ";";
+  //show current values
+  color1Value.innerHTML = setColor1Stop;
+  color2Value.innerHTML = setColor2Stop;
+  angleValue.innerHTML = setAngle;
+  //show current CSS code
+  cssCode.innerHTML = `background: ${body.style.background};`;
 }
 
-//fn COPY CSS CODE TO CLIPBOARD
+//copy CSS code to clipboard
 function copyToClipboard() {
   //create temporary text area to copy text from (text is in <p>,copying to clipboard works with textarea)
-  var textarea = document.createElement("textarea");
-  textarea.id = "temp_element";
+  const textarea = document.createElement("textarea");
+  textarea.id = "textarea-temp";
   textarea.style.height = 0;
   document.body.appendChild(textarea);
   //assign text from <p> to textarea
   textarea.value = cssCode.innerHTML;
   //copy text to clipboard
-  const selector = document.querySelector("#temp_element");
+  const selector = document.querySelector("#textarea-temp");
   selector.select();
   document.execCommand("copy");
   document.body.removeChild(textarea);
 }
-
-//COPY CSS CODE BY CLICKING THE BUTTON
-copyCode.addEventListener("click", copyToClipboard);
