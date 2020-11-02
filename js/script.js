@@ -24,7 +24,7 @@ const cssCode = document.querySelector("#code");
 */
 
 //initial background gradient css value
-cssCode.textContent = "background: " + initialValue.slice(17, -50) + ";";
+cssCode.innerHTML = `background: ${initialValue.slice(17, -50)};`;
 
 //initial slider value
 color1Value.innerHTML = color1Slider.value;
