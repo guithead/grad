@@ -1,6 +1,7 @@
 /*
   VARIABLES
 */
+
 //body
 const body = document.querySelector("body");
 const initialValue = getComputedStyle(body).background;

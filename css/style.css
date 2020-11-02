@@ -14,11 +14,7 @@ body {
   font-family: "Montserrat", sans-serif;
   text-align: center;
   color: rgba(0, 0, 0, 0.8);
-  background: linear-gradient(
-    90deg,
-    rgb(43, 93, 158) 0%,
-    rgb(196, 48, 160) 50%
-  );
+  background: linear-gradient(0deg, rgb(43, 93, 158) 0%, rgb(196, 48, 160) 80%);
   min-height: 100vh;
 }
 
